@@ -3,14 +3,19 @@
  */
 function rotate(nums: number[], k: number): void {
     let n: number = nums.length;
-    let newNums: number[] = new Array(n);
-    
-    for(let i: number = 0; i < n; i++){
-        let newPos: number = (i + k) % n;
-        newNums[newPos] = nums[i];
-    }
+    k = k % n;
 
-    for(let i: number = 0; i < n; i++){
-        nums[i] = newNums[i]
-    }
+    reverse(nums, 0, n - 1);
+    reverse(nums, 0, k - 1);
+    reverse(nums, k, n - 1)
 };
+
+function reverse(nums: number[], start: number, end: number): void {
+    while(start < end){
+        let temp: number = nums[end];
+        nums[end] = nums[start];
+        nums[start] = temp;
+        start++;
+        end--;
+    }
+}
