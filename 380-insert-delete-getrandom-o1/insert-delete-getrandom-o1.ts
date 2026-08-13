@@ -1,27 +1,38 @@
 class RandomizedSet {
-    private set: Set<number>;
+    private arr: number[];
+    private map: Map<number, number>;
 
     constructor() {
-        this.set = new Set<number>;
+        this.map = new Map();
+        this.arr = [];
     }
 
     insert(val: number): boolean {
-        if (!this.set.has(val)) {
-            this.set.add(val);
-            
-            return true;
-        }
+        if (this.map.has(val)) return false;
 
-        return false;
+        this.map.set(val, this.arr.length);
+        this.arr.push(val);
+        return true;
     }
 
     remove(val: number): boolean {
-        return this.set.delete(val);
+        if (!this.map.has(val)) return false;
+
+        const indexToRemove: number = this.map.get(val);
+        const lastValue: number = this.arr[this.arr.length - 1];
+
+        this.arr[indexToRemove] = lastValue;
+        this.map.set(lastValue, indexToRemove);
+
+        this.arr.pop();
+        this.map.delete(val);
+
+        return true;
     }
 
     getRandom(): number {
-        const arr: number[] = [...this.set];
-        const random: number = arr[Math.floor(Math.random() * arr.length)];
+        const random: number = this.arr[Math.floor(Math.random() * this.arr.length)];
+        
         return random;
     }
 }
