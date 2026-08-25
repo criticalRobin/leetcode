@@ -10,7 +10,7 @@ function canConstruct(ransomNote: string, magazine: string): boolean {
     }
 
     for (const char of ransomNote) {
-        if (map.get(char) === 0 || !map.get(char)) {
+        if (!map.get(char)) {
             return false;
         } else {
             map.set(char, map.get(char) - 1);
