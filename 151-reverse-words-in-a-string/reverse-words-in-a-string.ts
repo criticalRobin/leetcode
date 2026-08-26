@@ -10,12 +10,9 @@ function reverseWords(s: string): string {
 
         if (word !== '' && (s[i] === ' ' || i === s.length - 1)) {
             words.push(word);
-            // console.log(word.length);
             word = '';
         }
     }
-
-    // console.log(`words = ${words.length}`);
 
     for (let j: number = words.length - 1; j >= 0; j--) {
         console.log(`word = ${words[j]}`);
