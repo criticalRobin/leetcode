@@ -45,13 +45,8 @@ function justify(line: string[], maxWidth: number, isLastLine: boolean): string 
     for (let i: number = 0; i < line.length; i++) {
         result += line[i];
 
-        if (i < gaps) {
-            result = result + ' '.repeat(baseSpaces);
-
-            if (i < extraSpaces) { 
-                result += ' ';
-            }
-        }
+        if (i < gaps) result = result + ' '.repeat(baseSpaces);
+        if (i < extraSpaces) result += ' ';
     }
 
     return result;
