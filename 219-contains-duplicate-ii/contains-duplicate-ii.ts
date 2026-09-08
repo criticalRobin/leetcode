@@ -6,7 +6,6 @@ function containsNearbyDuplicate(nums: number[], k: number): boolean {
             hasSeen.set(nums[i], i);           
         } else {
             if (Math.abs(hasSeen.get(nums[i]) - i) <= k) return true;
-
             hasSeen.set(nums[i], i);
         } 
         
