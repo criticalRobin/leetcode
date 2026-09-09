@@ -1,33 +1,21 @@
 function isHappy(n: number): boolean {
-    const seen: Map<string, number> = new Map();
-    let numAsString: string = String(n);
-    let sum: number = 0;
+    const seen = new Set()
     
-    while (sum >= 0) {
-        if (!seen.has(numAsString)) {
-            seen.set(numAsString, sum);
+    let num: number = n;
+    while (true) {
+        let sum: number = 0;
+
+        for (let digit of String(num)) sum += Number(digit) ** 2;
+
+        if (sum === 1) return true;
+        
+        if (!seen.has(sum)) {
+            seen.add(sum);
         } else {
             return false;
         }
 
-        sum = 0;
-        console.log(`num = ${numAsString}`);
-        let left: number = 0;
-        let right: number = numAsString.length;
-
-        while (left < right) {
-            sum += Math.pow(Number(numAsString[left]), 2);
-            console.log(`sum = ${sum}`);
-            left++;
-        }
-
-        console.log(`final sum = ${sum}`);
-        
-        if (sum === 1) {
-            return true;
-        } else {
-            numAsString = String(sum);
-        }
+        num = sum;
     }
 
     return false;
