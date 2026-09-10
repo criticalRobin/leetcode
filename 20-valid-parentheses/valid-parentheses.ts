@@ -17,5 +17,5 @@ function isValid(s: string): boolean {
         }
     }
 
-    return openChars.length > 0 ? false : true;
+    return openChars.length === 0;
 };
