@@ -5,11 +5,12 @@ function simplifyPath(path: string): string {
     for (const part of parts) {
     if (part === '' || part === '.') continue;
     if (part === '..') {
-        if (stack.length > 0) stack.pop();
-        continue;
+            if (stack.length > 0) stack.pop();
+            continue;
+        }
+        
+        stack.push(part);
     }
-    stack.push(part);
-}
 
     return '/' + stack.join('/');
 };
