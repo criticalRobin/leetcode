@@ -8,29 +8,18 @@ class MinStack {
     }
 
     push(value: number): void {
-        const lastMinValue: number | null = this.minStack[this.minStack.length - 1];
-        
         this.stack.push(value);
-        this.minStack.push(value);
 
-        if (lastMinValue < value) {
-            this.minStack[this.minStack.length - 1] = this.minStack[this.minStack.length - 2]; 
-            this.minStack[this.minStack.length - 2] = value; 
-        }
+        const currentMin = this.minStack.length === 0
+            ? value
+            : Math.min(this.minStack[this.minStack.length - 1], value);
+
+        this.minStack.push(currentMin);
     }
 
     pop(): void {
-        const top: number = this.top();
-        const min: number = this.getMin();
-
-        if (top === min) {
-            this.stack.pop();
-            this.minStack.pop();
-        } else {
-            this.stack.pop();
-            this.minStack.pop();
-            this.minStack[this.minStack.length - 1] = min;
-        }
+        this.stack.pop();
+        this.minStack.pop()
     }
 
     top(): number {
