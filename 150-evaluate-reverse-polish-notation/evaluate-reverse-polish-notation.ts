@@ -2,6 +2,7 @@ type MathOperation = (a: number, b: number) => number;
 
 function evalRPN(tokens: string[]): number {
     const operators: Set<string> = new Set(['+', '-', '*', '/']);
+    console.log(`hjola`);
     const stack: string[] = [];
 
     const calculate: Record<string, MathOperation> = {
