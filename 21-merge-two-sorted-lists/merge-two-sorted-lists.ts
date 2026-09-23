@@ -19,10 +19,10 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
         const val2: number = list2 !== null ? list2.val : 0;
 
         if (val1 <= val2) {
-            current.next = new ListNode(val1);
+            current.next = list1;
             if (list1 !== null) list1 = list1.next;
         } else {
-            current.next = new ListNode(val2);
+            current.next = list2;
             if (list2 !== null) list2 = list2.next;
         }
 
