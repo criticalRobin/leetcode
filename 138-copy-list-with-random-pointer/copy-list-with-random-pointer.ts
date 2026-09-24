@@ -34,5 +34,5 @@ function copyRandomList(head: _Node | null): _Node | null {
         current = current.next;
     }
 
-    return visitedNodes.get(head);
+    return visitedNodes.get(head)!;
 };
