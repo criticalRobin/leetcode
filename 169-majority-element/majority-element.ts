@@ -3,7 +3,6 @@ function majorityElement(nums: number[]): number {
 
     let ans: number = 0;
     const numsMap: Map<number, number> = new Map();
-    nums.sort((a, b) => a - b);
     
     for (const num of nums) {
         numsMap.set(num, (numsMap.get(num) + 1 | 0));
