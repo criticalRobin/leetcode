@@ -7,6 +7,6 @@ function removeDuplicates(nums: number[]): number {
             k++;
         }
     }
-    console.log(`k: ${k}`);
+    
     return k + 1;
 };
