@@ -4,7 +4,7 @@ function removeDuplicates(nums: number[]): number {
     for (let i: number = 0; i < nums.length; i++) {
         if (nums[i] !== nums[k - 2]) {
             nums[k] = nums[i];
-            k += 1;
+            k++;
         }
     }
 
