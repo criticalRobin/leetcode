@@ -1,21 +1,10 @@
 function mergeAlternately(word1: string, word2: string): string {
     let newWord: string = '';
-    const n: number = word1.length;
+    const maxLength: number = Math.max(word1.length, word2.length);
 
-    for (let i: number = 0; i < n; i++) {
-        if (i < word2.length) {
-            newWord = newWord + word1[i] + word2[i];
-        } else {
-            newWord = newWord + word1[i];
-        }
-    }
-    
-    if (word2.length > n) {
-        const diff: number = word2.length - (word2.length - n);
-
-        for (let j: number = diff; j < word2.length; j++) {
-            newWord = newWord + word2[j];
-        }
+    for (let i: number = 0; i < maxLength; i++) {
+        if (i < word1.length) newWord += word1[i];
+        if (i < word2.length) newWord += word2[i];
     }
 
     return newWord;
