@@ -5,9 +5,7 @@ function kidsWithCandies(candies: number[], extraCandies: number): boolean[] {
     for (const num of candies) maxCandies = Math.max(maxCandies, num);
 
     for (let i: number = 0; i < candies.length; i++) {
-        const currentCandies: number = candies[i] + extraCandies;
-
-        if (maxCandies <= currentCandies) res.push(true);
+        if (maxCandies <= candies[i] + extraCandies) res.push(true);
         else res.push(false)
     }
 
