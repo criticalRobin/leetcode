@@ -12,7 +12,6 @@ function reverseVowels(s: string): string {
         'u',
     ]);
     let sArr: string[] = [...s];
-    console.log(sArr);
     let left: number = 0;
     let right: number = sArr.length - 1;
 
