@@ -1,27 +1,17 @@
 function reverseWords(s: string): string {
-    let words: string[] = [];
-    let word: string = '';
+    const arr: string[] = s.split(' ');
 
-    for (let i: number = 0; i < s.length; i++) {
-        if (s[i] !== ' ') {
-            console.log(s[i]);
-            word += s[i];
-        }
+    if (arr.length === 1) return arr[0];
 
-        if (word !== '' && (s[i] === ' ' || i === s.length - 1)) {
-            words.push(word);
-            word = '';
+    let str: string[] = [];
+
+    for (let i: number = arr.length - 1; i >= 0; i--) {
+        if (arr[i] !== '') {
+            str.push(arr[i]);
         }
     }
 
-    for (let j: number = words.length - 1; j >= 0; j--) {
-        console.log(`word = ${words[j]}`);
-        if (j > 0) {
-            word += words[j] + ' ';
-        } else {
-            word += words[j];
-        }
-    }
-
-    return word;
+    if (str.length === 1) return str[0];
+    
+    return str.slice(0, str.length - 1).join(' ') + ' ' + str[str.length - 1];
 };
