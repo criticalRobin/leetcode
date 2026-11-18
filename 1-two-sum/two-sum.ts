@@ -1,20 +1,20 @@
 function twoSum(nums: number[], target: number): number[] {
-    let response: number[] = [];
-    let map: Map<number, number> = new Map();
+    const numsMap = new Map();
+    const res = [];
 
-    for (let i: number = 0; i < nums.length; i++) {
-        map.set(nums[i], i);
+    for (let i = 0; i < nums.length; i++) {
+        numsMap.set(nums[i], i)
     }
 
-    for (let j: number = 0; j < nums.length; j++) {
-        let remaining: number = target - nums[j];
-        
-        if (j === map.get(remaining)) continue;
-        
-        if (map.has(remaining)) {
-            response.push(j);
-            response.push(map.get(remaining));
-            return response;
+    for (let j = 0; j < nums.length; j++) {
+        const diference = target - nums[j];
+
+        if (j === numsMap.get(diference)) continue;
+
+        if (numsMap.has(diference)) {
+            res.push(j);
+            res.push(numsMap.get(diference));
+            return res;
         }
     }
 };
