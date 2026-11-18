@@ -1,6 +1,4 @@
 function topKFrequent(nums: number[], k: number): number[] {
-    if (nums.length === 1) return nums;
-    
     const map = new Map();
 
     for (const num of nums) {
