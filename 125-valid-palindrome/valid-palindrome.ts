@@ -1,12 +1,11 @@
 function isPalindrome(s: string): boolean {
-    let palindrome: boolean = true;
     s = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-    let n: number = s.length;
+    let right = s.length - 1;
 
-    for (let i: number = 0; i < n; i++) {
-        if (n <= 1) return palindrome;
-        if (s[i] != s[(n - 1) - i]) return !palindrome;
+    for (let i = 0; i < right; i++) {
+        if (s[i] !== s[right]) return false;
+        right--;
     }
 
-    return palindrome;
+    return true;
 };
